@@ -1,36 +1,113 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+STRAPS - Web-Based Strength Training and Rehabilitation Assessment App
 
-## Getting Started
+STRAPS is a web application designed to assist with strength training and rehabilitation assessments. It leverages AI pose detection technology to analyze movement patterns, track progress, and provide data-driven insights for clients and coaches.
 
-First, run the development server:
+✨ Features
+AI-Powered Pose Analysis: Real-time movement assessment using MediaPipe and TensorFlow.js
 
-```bash
+Dual User Roles: Separate interfaces for clients and coaches
+
+Progress Tracking: Monitor rehabilitation progress over time
+
+Secure Authentication: NextAuth.js with session management
+
+QR Code Integration: Quick access to patient data and sessions
+
+Database Persistence: Prisma ORM with scalable database management
+
+Container Ready: Docker support for easy deployment
+
+🛠️ Tech Stack
+Framework: Next.js 16 (App Router) with TypeScript
+
+UI: Tailwind CSS 4, Framer Motion, Lucide React
+
+AI/ML: TensorFlow.js, MediaPipe Pose Detection
+
+Database: Prisma ORM
+
+Authentication: NextAuth.js
+
+Email/SMS: Nodemailer, Twilio
+
+Validation: Zod
+
+Deployment: Docker, Vercel
+
+📋 Prerequisites
+Node.js 20+
+
+npm / yarn / pnpm / bun
+
+(Optional) Docker
+
+🚀 Getting Started
+Local Development
+
+Clone the repository:
+git clone https://github.com/Beasty350/straps.git
+cd straps
+
+Install dependencies:
+npm install
+
+Set up environment variables:
+cp .env.example .env.local
+
+Run database migrations:
+npx prisma migrate dev
+
+Start the development server:
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The Next.js development server and Prisma Studio will run concurrently.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Open http://localhost:3000 to view the app.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Docker Deployment
+docker build -t straps .
+docker run -p 3000:3000 straps
 
-## Learn More
+🔧 Available Scripts
+Command	Description
+npm run dev	Starts Next.js dev server + Prisma Studio
+npm run build	Generates Prisma client and builds Next.js
+npm run start	Starts production server
+npm run lint	Runs ESLint
+npm run db:studio	Opens Prisma Studio
 
-To learn more about Next.js, take a look at the following resources:
+🌍 Environment Variables
+Create a .env.local file with the following variables:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+env
+DATABASE_URL="your_database_connection_string"
+NEXTAUTH_SECRET="your_nextauth_secret"
+NEXTAUTH_URL="http://localhost:3000"
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+📁 Project Structure
+text
+straps/
+├── app/                # Next.js App Router pages and layouts
+│   ├── api/           # API routes
+│   ├── client/        # Client dashboard and interfaces
+│   └── coach/         # Coach dashboard and management
+├── lib/               # Utility functions and shared logic
+├── prisma/            # Database schema and migrations
+├── public/            # Static assets
+├── scripts/           # Utility scripts
+└── debug_menu.js      # Development debugging utility
+📚 Learn More
+Next.js Documentation
 
-## Deploy on Vercel
+Prisma Documentation
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+TensorFlow.js Pose Detection
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MediaPipe
+
+🚢 Deployment
+The easiest way to deploy is using Vercel:
+
+bash
+npm run build
+For containerized deployment, use the included Dockerfile.
