@@ -1,113 +1,83 @@
-STRAPS - Web-Based Strength Training and Rehabilitation Assessment App
+<!-- markdownlint-disable MD033 -->
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js" alt="Next.js" />
+  <img src="https://img.shields.io/badge/TypeScript-5.x-blue?style=for-the-badge&logo=typescript" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/TailwindCSS-4-38B2AC?style=for-the-badge&logo=tailwind-css" alt="TailwindCSS" />
+  <img src="https://img.shields.io/badge/Prisma-ORM-2D3748?style=for-the-badge&logo=prisma" alt="Prisma" />
+  <img src="https://img.shields.io/badge/TensorFlow.js-AI-FF6F00?style=for-the-badge&logo=tensorflow" alt="TensorFlow.js" />
+</p>
 
-STRAPS is a web application designed to assist with strength training and rehabilitation assessments. It leverages AI pose detection technology to analyze movement patterns, track progress, and provide data-driven insights for clients and coaches.
+<p align="center">
+  <img src="https://img.shields.io/github/stars/Beasty350/straps?style=social" alt="GitHub stars" />
+  <img src="https://img.shields.io/github/forks/Beasty350/straps?style=social" alt="GitHub forks" />
+  <img src="https://img.shields.io/github/license/Beasty350/straps?style=flat-square" alt="License" />
+</p>
 
-✨ Features
-AI-Powered Pose Analysis: Real-time movement assessment using MediaPipe and TensorFlow.js
+<br />
 
-Dual User Roles: Separate interfaces for clients and coaches
+<div align="center">
+  <h1>🏋️‍♂️ STRAPS</h1>
+  <p><strong>Strength Training & Rehabilitation Assessment Platform</strong></p>
+  <p>AI‑powered movement analysis for clients and coaches</p>
+  <br />
+</div>
 
-Progress Tracking: Monitor rehabilitation progress over time
+## 📖 About
 
-Secure Authentication: NextAuth.js with session management
+**STRAPS** is a modern web application that helps physical therapists, coaches, and individuals track strength training and rehabilitation progress. Using **real‑time AI pose detection** (MediaPipe + TensorFlow.js), it analyzes movement patterns, detects imbalances, and provides data‑driven insights — all in your browser.
 
-QR Code Integration: Quick access to patient data and sessions
+> 🔥 **Why STRAPS?**  
+> No expensive hardware, no manual logging. Just a webcam and a few seconds to get actionable feedback.
 
-Database Persistence: Prisma ORM with scalable database management
+## ✨ Key Features
 
-Container Ready: Docker support for easy deployment
+| Feature | What it does |
+|---------|---------------|
+| 🤖 **AI Pose Analysis** | Real‑time joint tracking and movement assessment |
+| 👥 **Dual Roles** | Separate dashboards for **clients** (track progress) and **coaches** (manage patients) |
+| 📈 **Progress Over Time** | Visual charts and history of rehabilitation metrics |
+| 🔐 **Secure Auth** | NextAuth.js with session management and protected routes |
+| 📲 **QR Code Access** | Instantly share patient data or join a session |
+| 🗄️ **Database Ready** | Prisma ORM with migrations – works with PostgreSQL, MySQL, SQLite |
+| 🐳 **Container First** | Dockerfile included for easy deployment anywhere |
 
-🛠️ Tech Stack
-Framework: Next.js 16 (App Router) with TypeScript
+## 🛠️ Tech Stack
 
-UI: Tailwind CSS 4, Framer Motion, Lucide React
+<p align="left">
+  <img src="https://skillicons.dev/icons?i=nextjs,ts,tailwind,prisma,docker,vercel" />
+</p>
 
-AI/ML: TensorFlow.js, MediaPipe Pose Detection
+- **Framework:** Next.js 16 (App Router) + TypeScript  
+- **Styling:** Tailwind CSS 4, Framer Motion, Lucide React  
+- **AI/ML:** TensorFlow.js, MediaPipe Pose Detection  
+- **Database:** Prisma ORM (PostgreSQL / MySQL / SQLite)  
+- **Authentication:** NextAuth.js  
+- **Email/SMS:** Nodemailer, Twilio  
+- **Validation:** Zod  
+- **Deployment:** Docker, Vercel
 
-Database: Prisma ORM
+## 🚀 Quick Start
 
-Authentication: NextAuth.js
+### Prerequisites
 
-Email/SMS: Nodemailer, Twilio
+- Node.js 20+ (or Bun / pnpm / yarn)
+- (Optional) Docker
 
-Validation: Zod
+### Local Development (3 minutes)
 
-Deployment: Docker, Vercel
-
-📋 Prerequisites
-Node.js 20+
-
-npm / yarn / pnpm / bun
-
-(Optional) Docker
-
-🚀 Getting Started
-Local Development
-
-Clone the repository:
+```bash
+# 1. Clone the repo
 git clone https://github.com/Beasty350/straps.git
 cd straps
 
-Install dependencies:
+# 2. Install dependencies
 npm install
 
-Set up environment variables:
+# 3. Set up environment (edit .env.local with your DB)
 cp .env.example .env.local
 
-Run database migrations:
+# 4. Run database migrations
 npx prisma migrate dev
 
-Start the development server:
+# 5. Start everything (Next.js + Prisma Studio)
 npm run dev
-
-The Next.js development server and Prisma Studio will run concurrently.
-
-Open http://localhost:3000 to view the app.
-
-Docker Deployment
-docker build -t straps .
-docker run -p 3000:3000 straps
-
-🔧 Available Scripts
-Command	Description
-npm run dev	Starts Next.js dev server + Prisma Studio
-npm run build	Generates Prisma client and builds Next.js
-npm run start	Starts production server
-npm run lint	Runs ESLint
-npm run db:studio	Opens Prisma Studio
-
-🌍 Environment Variables
-Create a .env.local file with the following variables:
-
-env
-DATABASE_URL="your_database_connection_string"
-NEXTAUTH_SECRET="your_nextauth_secret"
-NEXTAUTH_URL="http://localhost:3000"
-
-📁 Project Structure
-text
-straps/
-├── app/                # Next.js App Router pages and layouts
-│   ├── api/           # API routes
-│   ├── client/        # Client dashboard and interfaces
-│   └── coach/         # Coach dashboard and management
-├── lib/               # Utility functions and shared logic
-├── prisma/            # Database schema and migrations
-├── public/            # Static assets
-├── scripts/           # Utility scripts
-└── debug_menu.js      # Development debugging utility
-📚 Learn More
-Next.js Documentation
-
-Prisma Documentation
-
-TensorFlow.js Pose Detection
-
-MediaPipe
-
-🚢 Deployment
-The easiest way to deploy is using Vercel:
-
-bash
-npm run build
-For containerized deployment, use the included Dockerfile.
